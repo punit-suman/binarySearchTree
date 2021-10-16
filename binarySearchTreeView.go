@@ -1,8 +1,10 @@
-package binarytree
+package binarySearchTree
 
 import "fmt"
 
-//In-order traversal
+// In-order traversal
+// Left branch -> Current Node -> Right Branch
+// visits node in ascending order
 func (n *Node) InorderTraversal() {
 	if n == nil {
 		return
@@ -12,7 +14,9 @@ func (n *Node) InorderTraversal() {
 	n.Right.InorderTraversal()
 }
 
-//Pre-order traversal
+// Pre-order traversal
+// Current Node -> Left Node -> Right Node
+// Root Node is visited first
 func (n *Node) PredorderTraversal() {
 	if n == nil {
 		return
@@ -22,7 +26,9 @@ func (n *Node) PredorderTraversal() {
 	n.Right.PredorderTraversal()
 }
 
-//Post-order traversal
+// Post-order traversal
+// Left Node -> Right Node -> Current Node
+// Root Node is visited last
 func (n *Node) PostdorderTraversal() {
 	if n == nil {
 		return

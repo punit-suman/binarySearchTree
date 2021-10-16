@@ -1,4 +1,4 @@
-package binarytree
+package binarySearchTree
 
 type Node struct {
 	Value int
@@ -7,17 +7,18 @@ type Node struct {
 }
 
 func (n *Node) Insert(k int) {
+	v := &Node{Value: k}
 	if n.Value < k {
 		//move right if value is lesser
 		if n.Right == nil {
-			n.Right = &Node{Value: k}
+			n.Right = v
 		} else {
 			n.Right.Insert(k)
 		}
-	} else if n.Value > k {
-		//move left if value is greater
+	} else if n.Value >= k {
+		//move left if value is greater or equal
 		if n.Left == nil {
-			n.Left = &Node{Value: k}
+			n.Left = v
 		} else {
 			n.Left.Insert(k)
 		}
