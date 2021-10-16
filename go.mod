@@ -1,3 +1,3 @@
-module github.com/punit-suman/binarytree
+module github.com/punit-suman/binarySearchTree
 
 go 1.15
