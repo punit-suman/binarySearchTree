@@ -25,31 +25,39 @@ func (n *Node) Insert(k int) {
 	}
 }
 
-var count int = 0
-
-func (n *Node) NumberOfNodes() int {
+func (n *Node) NumberOfNodes(c ...int) int {
+	var count int
+	if len(c) == 0 {
+		count = 0
+	} else {
+		count = c[0]
+	}
 	if n == nil {
 		return count
 	}
 	if n != nil {
-		n.Left.NumberOfNodes()
-		n.Right.NumberOfNodes()
 		count++
+		count = n.Left.NumberOfNodes(count)
+		count = n.Right.NumberOfNodes(count)
 	}
 	return count
 }
 
-var countLeaves int = 0
-
-func (n *Node) NumberOfLeaves() int {
+func (n *Node) NumberOfLeaves(l ...int) int {
+	var countLeaves int
+	if len(l) == 0 {
+		countLeaves = 0
+	} else {
+		countLeaves = l[0]
+	}
 	if n == nil {
 		return countLeaves
 	}
 	if n.Left == nil && n.Right == nil {
 		countLeaves++
 	} else {
-		n.Left.NumberOfLeaves()
-		n.Right.NumberOfLeaves()
+		countLeaves = n.Left.NumberOfLeaves(countLeaves)
+		countLeaves = n.Right.NumberOfLeaves(countLeaves)
 	}
 	return countLeaves
 }

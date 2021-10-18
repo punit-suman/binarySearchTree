@@ -5,36 +5,36 @@ import "fmt"
 // In-order traversal
 // Left branch -> Current Node -> Right Branch
 // visits node in ascending order
-func (n *Node) InorderTraversal() {
+func (n *Node) InOrderTraversal() {
 	if n == nil {
 		return
 	}
-	n.Left.InorderTraversal()
+	n.Left.InOrderTraversal()
 	fmt.Println(n.Value)
-	n.Right.InorderTraversal()
+	n.Right.InOrderTraversal()
 }
 
 // Pre-order traversal
 // Current Node -> Left Node -> Right Node
 // Root Node is visited first
-func (n *Node) PredorderTraversal() {
+func (n *Node) PreOrderTraversal() {
 	if n == nil {
 		return
 	}
 	fmt.Println(n.Value)
-	n.Left.PredorderTraversal()
-	n.Right.PredorderTraversal()
+	n.Left.PreOrderTraversal()
+	n.Right.PreOrderTraversal()
 }
 
 // Post-order traversal
 // Left Node -> Right Node -> Current Node
 // Root Node is visited last
-func (n *Node) PostdorderTraversal() {
+func (n *Node) PostOrderTraversal() {
 	if n == nil {
 		return
 	}
-	n.Left.PostdorderTraversal()
-	n.Right.PostdorderTraversal()
+	n.Left.PostOrderTraversal()
+	n.Right.PostOrderTraversal()
 	fmt.Println(n.Value)
 }
 
